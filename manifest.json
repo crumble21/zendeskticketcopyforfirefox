@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Zendesk Ticket Copy Button",
-  "version": "1.4.3",
-  "description": "Adds a copy button next to the ticket number in Zendesk.",
+  "name": "Zendesk Ticket Copy + Open in Obsidian",
+  "version": "1.5.0",
+  "description": "Adds copy and Open in Obsidian buttons next to the ticket number in Zendesk.",
   "author": "Hayden Beckett <hayden@haydenbeckett.co.uk>",
   "icons": {
     "48": "logox48.png",
@@ -18,7 +18,7 @@
   },
   "browser_action": {
     "default_icon": "logox48.png",
-    "default_title": "Copy Button Settings",
+    "default_title": "Ticket Button Settings",
     "default_popup": "options.html"
   },
   "background": {
@@ -39,5 +39,13 @@
   ],
   "web_accessible_resources": [
     "chime.mp3"
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "zendesk-open-in-obsidian@crumblecloud.com",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
 }

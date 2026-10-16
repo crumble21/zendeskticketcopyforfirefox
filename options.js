@@ -120,3 +120,19 @@ browser.storage.local.get(['buttonColor', 'savedColours', 'initialised']).then((
 }).catch(err => {
   console.error('Failed to load settings:', err);
 });
+
+// Keep these defaults in step with content.js
+const obsidianDefaults = {
+  obsidianVault: '',
+  obsidianChoice: 'Open Ticket by Zendesk ID'
+};
+
+browser.storage.local.get(Object.keys(obsidianDefaults)).then((data) => {
+  Object.keys(obsidianDefaults).forEach((key) => {
+    const input = document.getElementById(key);
+    input.value = data[key] ?? obsidianDefaults[key];
+    input.addEventListener('input', () => {
+      browser.storage.local.set({ [key]: input.value.trim() });
+    });
+  });
+});
